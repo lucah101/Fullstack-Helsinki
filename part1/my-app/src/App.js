@@ -113,34 +113,139 @@
 
 
 //1.5
+// const App = () => {
+//   const course = {
+//     name: 'Half Stack application development',
+//     parts: [
+//       {
+//         name: 'Fundamentals of React3',
+//         exercises: 10
+//       },
+//       {
+//         name: 'Using props to pass data3',
+//         exercises: 7
+//       },
+//       {
+//         name: 'State of a component3',
+//         exercises: 14
+//       }
+//     ]
+//   }
+
+//   return (
+//     <div>
+//       <h3>This course is {course.name}. </h3>
+//       <p>{course.parts[0].name} has {course.parts[0].exercises} exercises. </p>
+//       <p>{course.parts[1].name} has {course.parts[1].exercises} exercises. </p>
+//       <p>{course.parts[2].name} has {course.parts[2].exercises} exercises. </p>
+//     </div>
+//   )
+// }
+
+
+
+// const Hello = (props) => {
+//   const bornYear = () => {
+//     const yearNow = new Date().getFullYear()
+//     return yearNow - props.age
+//   }
+//   return (
+//     <div>
+//       <p>
+//         Hello {props.name}, you are {props.age} years old
+//       </p>
+//       <p>So you were probably born in {bornYear()}</p>
+//     </div>
+//   )
+// }
+
+// const App = () => {
+//   const name = 'Peter'
+//   const age = 10
+
+//   return (
+//     <div>
+//       <h1>Greetings</h1>
+//       <Hello name="Maya" age={26 + 10} />
+//       <Hello name={name} age={age} />
+//     </div>
+//   )
+// }
+
+
+// const App = (props) => {
+//   const {counter} = props
+  
+//   return (
+//     <div>{counter}</div>
+//   )
+// }
+
+// export default App
+
+
+
+import { useState } from 'react'
+
+// const App = () => {
+//   const [ counter, setCounter ] = useState(0)
+//   setTimeout(
+//     () => setCounter(counter + 1),
+//     1000
+//   )
+//   console.log('rendering...', counter)
+//   return (
+//     <div>{counter}</div>
+//   )
+// }
+
+// const App = () => {
+//   const [ counter, setCounter ] = useState(0)
+
+//   return (
+//     <div>
+//       <div>{counter}</div>
+//       <button onClick={() => setCounter(counter + 1)}>
+//         plus
+//       </button>
+
+//       <button onClick={() => setCounter(0)}>
+//         zero
+//       </button>
+//     </div>
+//   )
+// }
+
+
+const Display = ({ counter }) => <div>{counter}</div>
+const Button = ({ onClick, text }) => (
+  <button onClick={onClick}>
+    {text}
+  </button>
+)
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React3',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data3',
-        exercises: 7
-      },
-      {
-        name: 'State of a component3',
-        exercises: 14
-      }
-    ]
-  }
+  const [ counter, setCounter ] = useState(0)
+  const increaseByOne = () => setCounter(counter + 1)
+  const decreaseByOne = () => setCounter(counter - 1)
+  const setToZero = () => setCounter(0)
 
   return (
     <div>
-      <h3>This course is {course.name}. </h3>
-      <p>{course.parts[0].name} has {course.parts[0].exercises} exercises. </p>
-      <p>{course.parts[1].name} has {course.parts[1].exercises} exercises. </p>
-      <p>{course.parts[2].name} has {course.parts[2].exercises} exercises. </p>
+      <Display counter={counter}/>
+      <Button
+        onClick={increaseByOne}
+        text='plus'
+      />
+      <Button
+        onClick={setToZero}
+        text='zero'
+      />
+      <Button
+        onClick={decreaseByOne}
+        text='minus'
+      />
     </div>
   )
 }
-
 
 export default App
