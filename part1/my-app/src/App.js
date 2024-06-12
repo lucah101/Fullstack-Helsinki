@@ -185,7 +185,7 @@
 
 
 
-import { useState } from 'react'
+// import { useState } from 'react'
 
 // const App = () => {
 //   const [ counter, setCounter ] = useState(0)
@@ -433,6 +433,8 @@ import { useState } from 'react'
 
 
 //1.6-1.7
+import { useState } from 'react'
+
 const Display = props => <div>{props.value}</div>
 
 const Button = (props) => (
