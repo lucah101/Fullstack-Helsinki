@@ -475,12 +475,18 @@ const App = () => {
       <h1>
         statistics
       </h1>
+<<<<<<< HEAD
       <p>good <Display value={good} /></p>
       <p>neutral  <Display value={neutral} /></p>
       <p>bad  <Display value={bad} /></p>
       <p>all  <Display value={good + neutral + bad} /></p>
       <p>average  <Display value={(good - bad)/(good + neutral + bad)} /></p>
       <p>positive<Display value={good/(good + neutral + bad)*100} />%</p>
+=======
+      good <Display value={good} />
+      <p>neutral  <Display value={neutral} /></p>
+      <p>bad  <Display value={bad} /></p>
+>>>>>>> abe99f30e73b4c3bd396a67e464d8ae5765610c7
     </div>
   )
 }
